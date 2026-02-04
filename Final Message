@@ -4,9 +4,10 @@ if (currentQuestion < questions.length) {
   document.getElementById("answer").value = "";
   feedback.innerText = "";
 } else {
-  // Replace page content with the heartfelt letter
+  // Replace page content with the heartfelt letter and floating hearts
   document.body.innerHTML = `
     <div style="
+      position: relative;
       background-color: #fff0f5;
       color: #4b2e83;
       font-family: 'Georgia', serif;
@@ -17,7 +18,7 @@ if (currentQuestion < questions.length) {
       box-shadow: 0 8px 25px rgba(0,0,0,0.1);
       line-height: 1.7;
       text-align: left;
-      overflow-wrap: break-word;
+      overflow: hidden;
     ">
       <p>My dearest Shundruuu,</p>
 
@@ -38,7 +39,7 @@ if (currentQuestion < questions.length) {
       </p>
 
       <p>
-        Even when a hundred things could be going wrong around me, the one constant, the one safe place I always have is you. 
+        Even when a hundred things could be going wrong around me, the one constant, the one safe place I always have… is you. 
         You are my calm in the storm, my comfort, my safe space. 
         How do I even put into words something my heart and brain still can’t fully comprehend?
       </p>
@@ -59,6 +60,42 @@ if (currentQuestion < questions.length) {
         Forever and always,<br>
         Shuttu
       </p>
+
+      <!-- Container for hearts -->
+      <div id="hearts" style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; overflow:hidden;"></div>
     </div>
+
+    <script>
+      // Function to create a floating heart
+      function createHeart() {
+        const heart = document.createElement('div');
+        heart.innerText = '💖';
+        heart.style.position = 'absolute';
+        heart.style.fontSize = Math.random() * 30 + 20 + 'px';
+        heart.style.left = Math.random() * 100 + '%';
+        heart.style.opacity = Math.random();
+        heart.style.animation = 'floatUp ' + (Math.random() * 5 + 5) + 's linear forwards';
+        document.getElementById('hearts').appendChild(heart);
+
+        // Remove heart after animation
+        setTimeout(() => {
+          heart.remove();
+        }, 10000);
+      }
+
+      // Create hearts periodically
+      setInterval(createHeart, 500);
+
+      // Add animation via style tag
+      const style = document.createElement('style');
+      style.innerHTML = \`
+        @keyframes floatUp {
+          0% { transform: translateY(0); opacity: 0; }
+          10% { opacity: 1; }
+          100% { transform: translateY(-120vh); opacity: 0; }
+        }
+      \`;
+      document.head.appendChild(style);
+    </script>
   `;
 }
