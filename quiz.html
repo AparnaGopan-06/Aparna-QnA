@@ -1,78 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Q&A for My Love 💜</title>
-  <!-- Classy fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    body {
-      background: #f5e6ff;
-      font-family: 'Lato', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-      padding: 50px 20px;
-      color: #4b0082;
-    }
-
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2em;
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    #quiz-card {
-      background: #ffffff;
-      border-radius: 20px;
-      padding: 30px 40px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      max-width: 500px;
-      width: 100%;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    button {
-      background: #9b59b6;
-      color: white;
-      border: none;
-      border-radius: 12px;
-      padding: 12px 20px;
-      margin: 10px 0;
-      cursor: pointer;
-      font-size: 1em;
-      transition: 0.3s;
-      width: 100%;
-    }
-
-    button:hover {
-      background: #8e44ad;
-    }
-
-    #feedback {
-      margin-top: 20px;
-      font-size: 1.1em;
-      min-height: 24px;
-    }
-
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3em;
-      color: #7d3c98;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    p {
-      text-align: center;
-      font-size: 1.2em;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Q&A for My Love 💜</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body {
+  background: #f5e6ff;
+  font-family: 'Lato', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 50px 20px;
+  color: #4b0082;
+}
+h2 { font-family: 'Playfair Display', serif; font-size: 2em; text-align:center; margin-bottom:30px; }
+#quiz-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px 40px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  max-width: 500px; width:100%;
+  text-align:center;
+  position: relative;
+}
+button {
+  background: #9b59b6; color:white; border:none;
+  border-radius:12px; padding:12px 20px; margin:10px 0;
+  cursor:pointer; font-size:1em; transition:0.3s; width:100%;
+}
+button:hover { background:#8e44ad; }
+#feedback { margin-top:20px; font-size:1.1em; min-height:24px; }
+h1 { font-family:'Playfair Display', serif; font-size:3em; color:#7d3c98; text-align:center; margin-bottom:20px; }
+p { text-align:center; font-size:1.2em; }
+</style>
 </head>
 <body>
 
@@ -82,12 +45,10 @@
   <p id="feedback"></p>
 </div>
 
-<!-- Include confetti library -->
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 <script>
 let currentQuestion = 0;
-
 const questions = [
   {
     question: "Okay, let’s go with an easy one — where did we first meet?",
@@ -98,129 +59,92 @@ const questions = [
   },
   {
     question: "What was the date we first met in person?",
-    options: ["15th February, 2024", "16th February, 2024", "10th January, 2024", "12th January, 2024"],
-    correctIndex: 0,
-    correct: "💖 Yes, that day lives rent-free in my head.",
-    wrong: "Not quite… think harder!"
+    options: ["15th February, 2024","16th February, 2024","10th January, 2024","12th January, 2024"],
+    correctIndex: 0, correct: "💖 Yes, that day lives rent-free in my head.", wrong: "Not quite… think harder!"
   },
   {
     question: "What do I usually say when you’re about to hang up the phone?",
-    options: ["Pleaseee 5 more minutes", "Ok bye", "Okay you don’t love me", "Where you going?"],
-    correctIndex: 0,
-    correct: "Guilty as charged hehehe",
-    wrong: "Nope — but honestly I *should* say that sometimes."
+    options: ["Pleaseee 5 more minutes","Ok bye","Okay you don’t love me","Where you going?"],
+    correctIndex: 0, correct: "Guilty as charged hehehe", wrong: "Nope — but honestly I *should* say that sometimes."
   },
   {
     question: "What makes me smile instantly?",
-    options: ["Your texts", "Your calls", "Calling me shuttu/fiance/shundappiii", "All of the above (because duh)"],
-    correctIndex: 3,
-    correct: "Obviously correct 😌✨",
-    wrong: "Try again… you know this!"
+    options: ["Your texts","Your calls","Calling me shuttu/fiance/shundappiii","All of the above (because duh)"],
+    correctIndex: 3, correct: "Obviously correct 😌✨", wrong: "Try again… you know this!"
   },
   {
     question: "What do I do when I miss you?",
-    options: ["Send dramatic texts", "Call you and say 'hi… that’s it'", "Get an attitude and pick a fight", "Ignore you"],
-    correctIndex: 2,
-    correct: "Well, can you blame me? 😭",
-    wrong: "Nope… think like me in a mood."
+    options: ["Send dramatic texts","Call you and say 'hi… that’s it'","Get an attitude and pick a fight","Ignore you"],
+    correctIndex: 2, correct: "Well, can you blame me? 😭", wrong: "Nope… think like me in a mood."
   },
   {
     question: "What do I love most about 'us'?",
-    options: ["How we always find our way back to each other", "How safe I feel with you", "The fact that you still like me even when I’m dramatic 😌✨", "Everything about us (obviously correct)"],
-    correctIndex: 3,
-    correct: "Correct, because duh 💖",
-    wrong: "Wrong answer, but I still love you."
+    options: ["How we always find our way back to each other","How safe I feel with you","The fact that you still like me even when I’m dramatic 😌✨","Everything about us (obviously correct)"],
+    correctIndex: 3, correct: "Correct, because duh 💖", wrong: "Wrong answer, but I still love you."
   },
   {
     question: "If I’m in a bad mood, what will instantly make me soft?",
-    options: ["You making me laugh even when I’m trying to stay mad", "You whispering 'Ente shuttumani aaraaaa?' in that tone", "Food", "You acting innocent (even though you’re not)"],
-    correctIndex: 1,
-    correct: "Ohh the butterflies it gives me 🫠",
-    wrong: "Nice try, but no."
+    options: ["You making me laugh even when I’m trying to stay mad","You whispering 'Ente shuttumani aaraaaa?' in that tone","Food","You acting innocent (even though you’re not)"],
+    correctIndex: 1, correct: "Ohh the butterflies it gives me 🫠", wrong: "Nice try, but no."
   },
   {
     question: "Random question — if you get this wrong, what happens?",
-    options: ["You owe me a whole evening where you listen to me yap.", "You owe me at least 10 kisses — and I’m counting.", "You owe me a loooong call tonight… no sleepy excuses.", "You owe me all of the above — because obviously."],
-    correctIndex: 3,
-    correct: "what else did you expect😌",
-    wrong: "Wrong… but you still owe me."
+    options: ["You owe me a whole evening where you listen to me yap.","You owe me at least 10 kisses — and I’m counting.","You owe me a loooong call tonight… no sleepy excuses.","You owe me all of the above — because obviously."],
+    correctIndex: 3, correct: "what else did you expect😌", wrong: "Wrong… but you still owe me."
   },
   {
     question: "Our first interaction on Teams… what was I really thinking?",
-    options: ["Hmm… potential distraction detected 😏", "Why is this human so annoying… yet interesting?", "Must resist the urge to flirt via chat", "Already plotting how to get your attention"],
-    correctIndex: 2,
-    correct: "Yeaa, was trying hard not to give in😏",
-    wrong: "Nice guess… but no."
+    options: ["Hmm… potential distraction detected 😏","Why is this human so annoying… yet interesting?","Must resist the urge to flirt via chat","Already plotting how to get your attention"],
+    correctIndex: 2, correct: "Yeaa, was trying hard not to give in😏", wrong: "Nice guess… but no."
   },
   {
     question: "Final question alert: What’s my wish for us?",
-    options: ["To become husband and wife and build our lives together", "To travel the world with you and argue about cars", "To win over the kids completely so I’m their favourite 😎", "Or… are you locked in for all of it with me?"],
-    correctIndex: 3,
-    correct: "💍 You passed. Welcome to the final surprise.",
-    wrong: "Wrong — but I’ll still keep you."
+    options: ["To become husband and wife and build our lives together","To travel the world with you and argue about cars","To win over the kids completely so I’m their favourite 😎","Or… are you locked in for all of it with me?"],
+    correctIndex: 3, correct: "💍 You passed. Welcome to the final surprise.", wrong: "Wrong — but I’ll still keep you."
   }
 ];
 
 function loadQuestion() {
   const q = questions[currentQuestion];
   document.getElementById("question").innerText = q.question;
-
   const optionsDiv = document.getElementById("options");
   optionsDiv.innerHTML = "";
-
-  q.options.forEach((opt, index) => {
-    const btn = document.createElement("button");
-    btn.innerText = opt;
-    btn.onclick = () => checkAnswer(index);
+  q.options.forEach((opt,index)=>{
+    const btn=document.createElement("button");
+    btn.innerText=opt;
+    btn.onclick=()=>checkAnswer(index);
     optionsDiv.appendChild(btn);
   });
-
-  document.getElementById("feedback").innerText = "";
+  document.getElementById("feedback").innerText="";
 }
 
-function checkAnswer(selectedIndex) {
+function checkAnswer(selectedIndex){
   const feedback = document.getElementById("feedback");
   const q = questions[currentQuestion];
-
-  if (selectedIndex === q.correctIndex) {
-    feedback.innerText = q.correct;
-    feedback.style.color = "green";
-
-    // 🎉 Confetti effect on correct answer
-    confetti({
-      particleCount: 100,
-      spread: 70,
-      origin: { y: 0.6 },
-      colors: ['#ff4b5c', '#ffac41', '#6a0572', '#9b59b6', '#ffffff']
-    });
-    
-    setTimeout(() => {
+  if(selectedIndex===q.correctIndex){
+    feedback.innerText=q.correct; feedback.style.color="green";
+    // Confetti!
+    confetti({particleCount:100, spread:70, origin:{y:0.6}, colors:['#ff4b5c','#ffac41','#6a0572','#9b59b6','#ffffff']});
+    setTimeout(()=>{
       currentQuestion++;
-      if (currentQuestion < questions.length) {
-        loadQuestion();
-      } else {
-        // Final screen with button to redirect
-        document.getElementById("quiz-card").innerHTML = `
-          <h1>💖 </h1>
-          <p>YHmm didn't think you'd make it here hehh</p>
+      if(currentQuestion<questions.length){ loadQuestion(); }
+      else{
+        document.getElementById("quiz-card").innerHTML=`
+          <h1>💖</h1>
+          <p>Hmm didn't think you'd make it here hehh</p>
           <p>Thank you for being my person</p>
           <p>I love you!</p>
           <button id="view-message-btn">Click to view your message</button>
         `;
-        document.getElementById("view-message-btn").onclick = () => {
-          window.location.href = "final.html";
-        };
+        document.getElementById("view-message-btn").onclick=()=>{ window.location.href="final.html"; };
       }
-    }, 1500);
+    },1500);
   } else {
-    feedback.innerText = q.wrong;
-    feedback.style.color = "red";
+    feedback.innerText=q.wrong; feedback.style.color="red";
   }
 }
 
-// Load first question
 loadQuestion();
 </script>
-
 </body>
 </html>
