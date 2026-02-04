@@ -1,0 +1,64 @@
+if (currentQuestion < questions.length) {
+  document.getElementById("question").innerText =
+    questions[currentQuestion].question;
+  document.getElementById("answer").value = "";
+  feedback.innerText = "";
+} else {
+  // Replace page content with the heartfelt letter
+  document.body.innerHTML = `
+    <div style="
+      background-color: #fff0f5;
+      color: #4b2e83;
+      font-family: 'Georgia', serif;
+      max-width: 700px;
+      margin: 50px auto;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      line-height: 1.7;
+      text-align: left;
+      overflow-wrap: break-word;
+    ">
+      <p>My dearest Shundruuu,</p>
+
+      <p>
+        I honestly have no idea why I decided to create this little quiz and put you through it… 
+        but I really hope it made you smile, or maybe even made your fingers shake a little when you weren’t sure of the answer.
+      </p>
+
+      <p>
+        Anyway… I like being mushy, so even if this cringes you out pro max, I don’t care. Here goes: 
+        I love you, Shundruuu… I love you so much.
+      </p>
+
+      <p>
+        Waking up to your “Moorningg sunshine” messages, texting you about every tiny, mundane thing in my day, 
+        “controlling” you, getting on your nerves, not letting you hang up the call easily, and making sure you see me cry at least once a week… 
+        all of it has become such a beautiful, irreplaceable part of my life. I wouldn’t trade a single moment of it for anything.
+      </p>
+
+      <p>
+        Even when a hundred things could be going wrong around me, the one constant, the one safe place I always have is you. 
+        You are my calm in the storm, my comfort, my safe space. 
+        How do I even put into words something my heart and brain still can’t fully comprehend?
+      </p>
+
+      <p>
+        Despite all the challenges and the chaos life throws at us, I am grateful for Darwinbox, because I found my future there, 
+        and I guess some places do end up giving you the world. I love you, and I miss you more than words can say. 
+        I can’t wait to see you, to run into your arms, and feel the entire world shrink until it’s just us. 
+        It has always been you. It will always been you.
+      </p>
+
+      <p>
+        You are my heart, my home, my forever. And no matter how many words I write, or how many little quizzes I make, 
+        I will never be able to capture how much you mean to me.
+      </p>
+
+      <p style="margin-top: 30px; text-align: center; font-size: 18px;">
+        Forever and always,<br>
+        Shuttu
+      </p>
+    </div>
+  `;
+}
