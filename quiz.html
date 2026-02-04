@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Q&A Timeee </title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <title>Q&A for My Love 💜</title>
+  <!-- Classy fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400;500&display=swap" rel="stylesheet">
   <style>
     body {
       background: #f5e6ff;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Lato', sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -18,7 +19,7 @@
     }
 
     h2 {
-      font-family: 'Great Vibes', cursive;
+      font-family: 'Playfair Display', serif;
       font-size: 2em;
       text-align: center;
       margin-bottom: 30px;
@@ -58,7 +59,7 @@
     }
 
     h1 {
-      font-family: 'Great Vibes', cursive;
+      font-family: 'Playfair Display', serif;
       font-size: 3em;
       color: #7d3c98;
       text-align: center;
@@ -87,14 +88,14 @@ const questions = [
     question: "Okay, let’s go with an easy one — where did we first meet?",
     options: ["DB office", "On video call?", "Sendhoor Coffee", "Near PG"],
     correctIndex: 1,
-    correct: "Ah memory working fine i see.",
+    correct: "My my my, look whose memory is fine😂",
     wrong: "Nopeee… try again, my love 😌"
   },
   {
     question: "What was the date we first met in person?",
     options: ["15th February, 2024", "16th February, 2024", "10th January, 2024", "12th January, 2024"],
     correctIndex: 0,
-    correct: "💖 Yes — that day lives rent-free in my head.",
+    correct: "💖 Yes, that day lives rent-free in my head.",
     wrong: "Not quite… think harder!"
   },
   {
@@ -115,42 +116,42 @@ const questions = [
     question: "What do I do when I miss you?",
     options: ["Send dramatic texts", "Call you and say 'hi… that’s it'", "Get an attitude and pick a fight", "Ignore you"],
     correctIndex: 2,
-    correct: "Well, can you blame me now 😭",
+    correct: "Well, can you blame me? 😭",
     wrong: "Nope… think like me in a mood."
   },
   {
     question: "What do I love most about 'us'?",
     options: ["How we always find our way back to each other", "How safe I feel with you", "The fact that you still like me even when I’m dramatic 😌✨", "Everything about us (obviously correct)"],
     correctIndex: 3,
-    correct: "Correct — because duh 💖",
+    correct: "Correct, because duh 💖",
     wrong: "Wrong answer, but I still love you."
   },
   {
     question: "If I’m in a bad mood, what will instantly make me soft?",
     options: ["You making me laugh even when I’m trying to stay mad", "You whispering 'Ente shuttumani aaraaaa?' in that tone", "Food", "You acting innocent (even though you’re not)"],
     correctIndex: 1,
-    correct: "Ugh… the butterflies it gives me 🫠",
+    correct: "Ohh the butterflies it gives me 🫠",
     wrong: "Nice try, but no."
   },
   {
     question: "Random question — if you get this wrong, what happens?",
     options: ["You owe me a whole evening where you listen to me yap.", "You owe me at least 10 kisses — and I’m counting.", "You owe me a loooong call tonight… no sleepy excuses.", "You owe me all of the above — because obviously."],
     correctIndex: 3,
-    correct: "Correct 😌",
+    correct: "what else did you expect😌",
     wrong: "Wrong… but you still owe me."
   },
   {
     question: "Our first interaction on Teams… what was I really thinking?",
     options: ["Hmm… potential distraction detected 😏", "Why is this human so annoying… yet interesting?", "Must resist the urge to flirt via chat", "Already plotting how to get your attention"],
     correctIndex: 2,
-    correct: "Caught in 4K 😏",
+    correct: "Yeaa, was trying hard not to give in😏",
     wrong: "Nice guess… but no."
   },
   {
     question: "Final question alert: What’s my wish for us?",
     options: ["To become husband and wife and build our lives together", "To travel the world with you and argue about cars", "To win over the kids completely so I’m their favourite 😎", "Or… are you locked in for all of it with me?"],
     correctIndex: 3,
-    correct: "You passed. Welcome to the final surprise.",
+    correct: "💍 You passed. Welcome to the final surprise.",
     wrong: "Wrong — but I’ll still keep you."
   }
 ];
@@ -185,12 +186,17 @@ function checkAnswer(selectedIndex) {
       if (currentQuestion < questions.length) {
         loadQuestion();
       } else {
+        // Final screen with button to redirect
         document.getElementById("quiz-card").innerHTML = `
-          <h1>💖💖</h1>
+          <h1>💖 Surprise 💖</h1>
           <p>You actually know me too well.</p>
           <p>Thank you for being my person.</p>
           <p>I love us 🤍</p>
+          <button id="view-message-btn">Click to view your message</button>
         `;
+        document.getElementById("view-message-btn").onclick = () => {
+          window.location.href = "final.html";
+        };
       }
     }, 1500);
   } else {
@@ -205,6 +211,3 @@ loadQuestion();
 
 </body>
 </html>
-<a href="final.html">
-  <button>Click to see the message</button>
-</a>
