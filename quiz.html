@@ -33,6 +33,8 @@
       max-width: 500px;
       width: 100%;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
 
     button {
@@ -80,6 +82,9 @@
   <p id="feedback"></p>
 </div>
 
+<!-- Include confetti library -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
 <script>
 let currentQuestion = 0;
 
@@ -102,7 +107,7 @@ const questions = [
     question: "What do I usually say when you’re about to hang up the phone?",
     options: ["Pleaseee 5 more minutes", "Ok bye", "Okay you don’t love me", "Where you going?"],
     correctIndex: 0,
-    correct: "Guilty as charged",
+    correct: "Guilty as charged hehehe",
     wrong: "Nope — but honestly I *should* say that sometimes."
   },
   {
@@ -180,6 +185,14 @@ function checkAnswer(selectedIndex) {
   if (selectedIndex === q.correctIndex) {
     feedback.innerText = q.correct;
     feedback.style.color = "green";
+
+    // 🎉 Confetti effect on correct answer
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+      colors: ['#ff4b5c', '#ffac41', '#6a0572', '#9b59b6', '#ffffff']
+    });
     
     setTimeout(() => {
       currentQuestion++;
@@ -188,10 +201,10 @@ function checkAnswer(selectedIndex) {
       } else {
         // Final screen with button to redirect
         document.getElementById("quiz-card").innerHTML = `
-          <h1>💖 Surprise 💖</h1>
-          <p>You actually know me too well.</p>
-          <p>Thank you for being my person.</p>
-          <p>I love us 🤍</p>
+          <h1>💖 </h1>
+          <p>YHmm didn't think you'd make it here hehh</p>
+          <p>Thank you for being my person</p>
+          <p>I love you!</p>
           <button id="view-message-btn">Click to view your message</button>
         `;
         document.getElementById("view-message-btn").onclick = () => {
