@@ -68,4 +68,67 @@
       opacity: 0.8;
     }
 
-    .
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 10px;
+      top: 0;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) rotate(-45deg); opacity: 0.8; }
+      100% { transform: translateY(-800px) rotate(-45deg); opacity: 0; }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Hi Shundruuu 😏</h1>
+  
+  <div class="line">I thought I’d surprise my chakkara with something special—</div>
+  <div class="line">partly out of love, partly for my own entertainment.</div>
+  <div class="line">I’ve made a little game just for us.</div>
+  <div class="line">Let’s see how well you know me, my boy…</div>
+  <div class="line">because if you fail, the consequences shall be…well… memorable?</div>
+  <div class="line">But don’t worry. No pressure. At all. (totally.)</div>
+  
+  <a href="quiz.html">
+    <button>Proceed to Next</button>
+  </a>
+
+  <!-- Floating hearts -->
+  <script>
+    const body = document.body;
+    for(let i=0; i<30; i++){
+      let heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (3 + Math.random()*5) + 's';
+      heart.style.width = heart.style.height = (10 + Math.random()*20) + 'px';
+      body.appendChild(heart);
+    }
+  </script>
+</body>
+</html>
